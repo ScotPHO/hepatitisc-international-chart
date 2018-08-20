@@ -26,7 +26,7 @@ data <- readRDS("./data/hepatitisc_international.rds")
 #Needs to be https address or if local in code 64 (the latter does not work with 4.7 plotly)
 scotpho_logo <-  list(source ="https://raw.githubusercontent.com/jvillacampa/test/master/scotpho.png",
                       xref = "paper", yref = "paper",
-                      x= -0.09, y= 1.16, sizex = 0.16, sizey = 0.12, opacity = 1)
+                      x= -0.09, y= 1.16, sizex = 0.26, sizey = 0.20, opacity = 1)
 
 ############################.
 ## Visual interface ----
