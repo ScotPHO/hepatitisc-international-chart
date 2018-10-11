@@ -1,16 +1,15 @@
 #Code to create chart of hepatitis c by board.
 
+############################.
+## Global ----
+############################.
 
 ############################.
-##Packages ----
-############################.
+##Packages 
 library(dplyr) #data manipulation
 library(plotly) #charts
 library(shiny)
 
-############################.
-## Global ----
-############################.
 #Preparing data - not needed unless new data coming through
 # library (readr)
 # 
@@ -34,23 +33,23 @@ scotpho_logo <-  list(source ="https://raw.githubusercontent.com/jvillacampa/tes
 #Height and widths as percentages to allow responsiveness
 #Using divs as issues with classing css 
 ui <- fluidPage(style="width: 650px; height: 500px; ", 
-                div(style= "width:100%",
+                div(style= "width:100%", #Filter panel
                           h4("Chart 1. Hepatitis C across different regions of the world"),
                   div(style = "width: 50%; float: left;",
                       selectInput("measure", label = "Select a measure type",
                                   choices = c("Prevalence", "Infected population"))
                          )
                 ),
-                div(style= "width:100%; float: left;",
+                div(style= "width:100%; float: left;", #Main panel
                   plotlyOutput("chart", width = "100%", height = "350px"),
-                  p(div(style = "width: 80%; float: left;",
+                  p(div(style = "width: 80%; float: left;", #Footer
                         HTML("Source: <a href='http://www.who.int/hepatitis/publications/global-hepatitis-report2017/en/'>
                              World Health Organisation. 2017. Global Hepatitis Report.</a>")),
                     div(style = "width: 20%; float: left",
                         downloadLink('download_data', 'Download data'))
                         )
                   )
-                )
+                ) #Fluid page bracket
 
 ############################.
 ## Server ----
@@ -96,3 +95,5 @@ server <- function(input, output) {
 ############################.
 
 shinyApp(ui = ui, server = server)
+
+##END
